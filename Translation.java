@@ -1,8 +1,9 @@
 import java.util.HashMap;
+import java.util.ArrayList;
 
-public class CodonToAminoAcid {
+public class Translation {
 	private static HashMap<String, String> correspCodons = new HashMap<String, String>();
-	static void createMap() {
+	public static void createMap() {
 		// Simplifying system allowed me to code for only 31 of the 64 codons that exist
 		// For the following parts of a codon, it doesn't matter what the third base is
 		correspCodons.put("AC","Threonine");
@@ -38,13 +39,34 @@ public class CodonToAminoAcid {
 		correspCodons.put("GAA", "Glutamic Acid");
 		correspCodons.put("GA", "Aspartic Acid"); // All other GA's are Aspartic Acid
 	}
-  // make sure to use this specific function, because it complies with the shorthand version of the map
-	static String codonToAA(String codon) {
+  	// make sure to use this specific function, because it complies with the shorthand version of the map
+	public static String codonToAA(String codon) {
 		createMap();
 		if (correspCodons.get(codon) == null) {
 			return correspCodons.get(codon.substring(0, 2));
 		} else {
 			return correspCodons.get(codon);
 		}
+	}
+	public static ArrayList<String> createProtein(String mRNA) {
+		ArrayList<String> polypeptide = new ArrayList<String>();
+		for (int i = findStart(mRNA); i < mRNA.length() - 3; i+= 3) {
+			if (codonToAA(mRNA.substring(i, i+3)).equals("STOP")) {
+				break;
+			} else {
+				polypeptide.add(codonToAA(mRNA.substring(i, i+3)));
+			}
+		}
+		return polypeptide;
+	}
+	public static int findStart(String mRNA) {
+		int s = 0;
+		for (int i = 0; i < mRNA.length(); i++) {
+			if (mRNA.substring(i, i+3).equals("AUG")) {
+				s = i;
+				break;
+			}
+		}
+		return s;
 	}
 }
