@@ -8,11 +8,7 @@ public class Transcription {
 		if (threeToFiveDNA.indexOf("TAC") != -1) {
 			return threeToFiveDNA;
 		} else {
-			String reverse = "";
-			for (int i = threeToFiveDNA.length() - 1; i >= 0; i--) {
-				reverse += threeToFiveDNA.charAt(i);
-			}
-			return reverse;
+			return Replication.reverse(Replication.replicate(threeToFiveDNA));
 		}
 	}
 	// Creates immature mRNA strand
