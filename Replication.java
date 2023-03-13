@@ -4,9 +4,9 @@ public class Replication {
     for (int i = 0; i < DNA.length(); i++) {
       switch(DNA.charAt(i)) {
         case 'A': repDNA += 'T'; break;
-				case 'T': repDNA += 'A'; break;
-				case 'G': repDNA += 'C'; break;
-				case 'C': repDNA += 'G'; break;
+	case 'T': repDNA += 'A'; break;
+	case 'G': repDNA += 'C'; break;
+	case 'C': repDNA += 'G'; break;
       }
     }
     return repDNA;
