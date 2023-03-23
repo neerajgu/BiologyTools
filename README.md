@@ -1,9 +1,3 @@
-# ProteinSynthesis
-Transcription: Methods to do transcription
-  Identify and return template strand
-  Create immature mRNA
-  Create mature mRNA from user input intron(s)
-Translation: Methods to do translation
-  Find start codon
-  Convert each codon to amino acid
-  Return polypeptide
+# BiologyTools
+You will find the Java codes here.
+Here is a website where you can easily use this: {coming soon}
